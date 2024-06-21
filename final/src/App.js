@@ -20,15 +20,15 @@ export default function App() {
     setSelectedId((selectedId) => (id === selectedId ? null : id));
   }
 
-  function handleCloseMovie() {
+  function handleClosedMovie() {
     setSelectedId(null);
   }
 
-  function handleAddWatched(movie) {
+  function handleAddedWatched(movie) {
     setWatched((watched) => [...watched, movie]);
   }
 
-  function handleDeleteWatched(id) {
+  function handleDeletedWatched(id) {
     setWatched((watched) => watched.filter((movie) => movie.imdbID !== id));
   }
 
@@ -53,8 +53,8 @@ export default function App() {
           {selectedId ? (
             <MovieDetails
               selectedId={selectedId}
-              onCloseMovie={handleCloseMovie}
-              onAddWatched={handleAddWatched}
+              onCloseMovie={handleClosedMovie}
+              onAddWatched={handleAddedWatched}
               watched={watched}
             />
           ) : (
@@ -62,7 +62,7 @@ export default function App() {
               <WatchedSummary watched={watched} />
               <WatchedMoviesList
                 watched={watched}
-                onDeleteWatched={handleDeleteWatched}
+                onDeleteWatched={handleDeletedWatched}
               />
             </>
           )}
